@@ -33,3 +33,19 @@ const calculaEdad = ()=>{
 }
 calculaEdad()
 
+//Escribí un programa que piense un número de forma aleatoria del 1 al 10 y le pida al usuario que lo trate de adivinar. Si el número es correcto debe imprimir en la consola "Felicitaciones, ese era!", de lo contrario, debe imprimir "Lo siento, intenta nuevamente!"
+function getRandomIntInclusive(min, max){
+    min= Math.ceil(min);
+    max= Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+let numero = getRandomIntInclusive(1,10)
+let numero2 = prompt("Ingrese un numero: ")
+
+if(numero === numero2){
+    console.log("Felicitaciones, ese era!")
+} else{
+    console.log("Lo siento, intenta nuevamente!")
+}
+console.log("El numero aleatorio es: "numero)
+ 
