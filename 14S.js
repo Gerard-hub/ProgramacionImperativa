@@ -1,6 +1,6 @@
 const edades = [11, 12, 15, 18, 25, 22, 10, 33, 18, 5];
 
-const edad = arr =>{
+const arrayMenores = arr =>{
     let menores = []
    
     for(let i=0;i<arr.length;i++){
@@ -10,8 +10,7 @@ const edad = arr =>{
     }
     return menores
 }
-
-console.log(edad(edades))
+console.log(arrayMenores(edades))
 
 const edadMayorIgual = arr =>{
     let mayorIgual = []
@@ -214,3 +213,46 @@ const arrayCuentas =
     return ctaMayorSaldo
   }
   console.log(ctaMayorSaldo(arrayCuentas))
+
+  const generarID = arr =>{
+    let id = 0
+    for(let i=0; i<arr.length; i++){
+        arr[i].id = i + 1
+    }
+  }
+  generarID(arrayCuentas)
+  console.log(arrayCuentas)
+
+  const buscarPorId = (arr, x) =>{
+    for(let i=0; i<arr.length; i++){
+        if(arr[i].id === x){
+            return arr[i]
+        }
+        else
+            return null
+    }
+  }
+  console.log(buscarPorId(arrayCuentas, 2))
+
+  const filtrarPorSaldos = (arr, monto) =>{
+    let ctasHastaMonto = []
+    for(let i=0; i<arr.length; i++){
+        if(arr[i].saldo <= monto){
+            ctasHastaMonto.push(arr[i])
+        }
+    }
+    return ctasHastaMonto
+  }
+  console.log(filtrarPorSaldos(arrayCuentas, 2000))
+
+const incrementarSaldo = (arr, x, monto) =>{
+    let arrADevolver = buscarPorId(arr, x)
+    if(arrADevolver != null){
+        arrADevolver.saldo += monto
+    }
+    else{
+        return undefined
+    }
+}
+incrementarSaldo(arrayCuentas, 5, 1000)
+console.log(arrayCuentas[4])
